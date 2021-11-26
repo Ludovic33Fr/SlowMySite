@@ -11,7 +11,7 @@
     */
 
     var shouldRun = true;
-    var desiredLoadFactor = 50;
+    var desiredLoadFactor = 10;
     
     var now = new Date().getTime();
     var result = 0
