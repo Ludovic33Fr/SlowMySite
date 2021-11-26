@@ -12,7 +12,7 @@
 
     var shouldRun = true;
     //Number of second to wait
-    var desiredLoadFactor = 15;
+    var desiredLoadFactor = 10;
     
     var now = new Date().getTime();
     var result = 0
