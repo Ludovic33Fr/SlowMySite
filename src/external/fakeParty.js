@@ -15,11 +15,13 @@
     
     var now = new Date().getTime();
     var result = 0
+    console.log("Start the service !!");
     while(shouldRun) {
         result += Math.random() * Math.random();
         if (new Date().getTime() > now + 1000*desiredLoadFactor)
         {
             shouldRun = false;
+            console.log("End the service !!");
         }
     }	
 
