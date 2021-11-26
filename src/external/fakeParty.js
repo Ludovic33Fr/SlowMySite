@@ -11,17 +11,18 @@
     */
 
     var shouldRun = true;
-    var desiredLoadFactor = 5;
+    //Number of second to wait
+    var desiredLoadFactor = 15;
     
     var now = new Date().getTime();
     var result = 0
-    console.log("Start the service : " + new Date().toString());
+    console.log("Start the service : " + new Date().toLocaleString('en-US'));
     while(shouldRun) {
         result += Math.random() * Math.random();
         if (new Date().getTime() > now + 1000*desiredLoadFactor)
         {
             shouldRun = false;
-            console.log("End the service : " + new Date().toString());
+            console.log("End the service : " + new Date().toLocaleString('en-US'));
         }
     }	
 
