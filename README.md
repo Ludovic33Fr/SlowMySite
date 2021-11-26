@@ -11,6 +11,15 @@ My Chrome Extension
 
 [**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
 
+## Quick overview
+npm install -g chrome-extension-cli
+chrome-extension-cli my-extension
+cd my-extension
+npm run watch
+
+## Build 
+npm run build
+
 ## Contribution
 
 Suggestions and pull requests are welcomed!.

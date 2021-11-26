@@ -42,7 +42,31 @@ import './popup.css';
         type: 'DECREMENT',
       });
     });
+
+    document.getElementById('activeChk').addEventListener('change', function() {
+      enableIntegration(this.checked);
+    });
+
+
   }
+
+function enableIntegration(active) {
+  
+  chrome.tabs.sendMessage(
+    tab.id,
+    {
+      type: 'ACTIVE',
+      payload: {
+        isactive: active,
+      },
+    },
+    response => {
+      console.log('The javascript injection is now ');
+    }
+  );
+  
+  console.log("State of the injection : " + active);
+}
 
   function updateCounter({ type }) {
     counterStorage.get(count => {

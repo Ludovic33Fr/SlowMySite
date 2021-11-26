@@ -17,6 +17,13 @@ console.log(
   `Page title is: '${pageTitle}' - evaluated by Chrome extension's 'contentScript.js' file`
 );
 
+// Add into the head 
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js?test=LUDO";
+document.head.appendChild(script);
+
+
 // Communicate with background file by sending a message
 chrome.runtime.sendMessage(
   {

@@ -19,3 +19,29 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
   }
 });
+
+
+// User has navigated to a new URL in a tab
+chrome.tabs.onUpdated.addListener ((tabId, changeInfo, tab) => {
+  if (
+    //   tab.url !== null && tab.url.startsWith ('http') &&
+    changeInfo.status == 'loading' && tab !== null && tab.url !== undefined &&
+    tab.active
+  ) {
+    //InjectBadJs();
+  }
+});
+
+
+function InjectBadJs () {
+  chrome.tabs.executeScript (null, {
+    file: 'inject.js',
+  });
+  /*
+  chrome.storage.sync.get (['activateLink'], function (obj) {
+    if (obj.activateLink == true) {
+
+    }
+  });
+  */
+}
