@@ -12,19 +12,31 @@
 // See https://developer.chrome.com/extensions/content_scripts
 
 // Log `title` of current active web page
+/*
 const pageTitle = document.head.getElementsByTagName('title')[0].innerHTML;
 console.log(
   `Page title is: '${pageTitle}' - evaluated by Chrome extension's 'contentScript.js' file`
 );
+*/
 
-// Add into the head 
-var script = document.createElement('script');
-script.type = 'text/javascript';
-script.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js?test=LUDO";
-document.head.appendChild(script);
+
+document.addEventListener('DOMContentLoaded', fireContentLoadedEvent, false);
+
+function fireContentLoadedEvent () {
+  // Add into the head 
+  var head = document.head;
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = "https://ludovic33fr.github.io/SlowMySite/src/external/fakeParty.js";
+  //document.head.appendChild(script);
+  head.insertBefore(script, head.firstChild);
+}
+
+
 
 
 // Communicate with background file by sending a message
+/*
 chrome.runtime.sendMessage(
   {
     type: 'GREETINGS',
@@ -36,8 +48,10 @@ chrome.runtime.sendMessage(
     console.log(response.message);
   }
 );
+*/
 
 // Listen for message
+/*
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'COUNT') {
     console.log(`Current count is ${request.payload.count}`);
@@ -48,3 +62,4 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   sendResponse({});
   return true;
 });
+*/
