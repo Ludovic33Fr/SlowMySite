@@ -11,23 +11,14 @@
     var shouldRun = true;
     var desiredLoadFactor = .5;
     
-    function blockCpuFor(ms) {
-        var now = new Date().getTime();
-        var result = 0
-        while(shouldRun) {
-            result += Math.random() * Math.random();
-            if (new Date().getTime() > now +ms)
-                return;
-        }	
-    }
-    
-    function start() {
-        shouldRun = true;
-        blockCpuFor(1000*desiredLoadFactor);
-        setTimeout(start, 1000* (1 - desiredLoadFactor));
-    }
-
-	//alert('Insert the injection Alert');
-    start();
+    var now = new Date().getTime();
+    var result = 0
+    while(shouldRun) {
+        result += Math.random() * Math.random();
+        if (new Date().getTime() > now + 1000*desiredLoadFactor)
+        {
+            shouldRun = false;
+        }
+    }	
 
 })();
