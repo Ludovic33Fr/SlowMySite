@@ -20,11 +20,7 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "tabs",
-    "storage",
-    "http://localhost/",
-    "http://*/*",
-    "https://*/*"
+    "storage"
   ],
   "content_scripts": [
     {

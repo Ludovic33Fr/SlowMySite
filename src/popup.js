@@ -52,8 +52,12 @@ import './popup.css';
 
 function enableIntegration(active) {
   
-  chrome.tabs.sendMessage(
-    tab.id,
+  const payload = {
+    isactive: active
+  }
+  chrome.storage.sync.set(payload);
+
+  chrome.runtime.sendMessage(
     {
       type: 'ACTIVE',
       payload: {
@@ -61,7 +65,7 @@ function enableIntegration(active) {
       },
     },
     response => {
-      console.log('The javascript injection is now ');
+      console.log(response.message);
     }
   );
   

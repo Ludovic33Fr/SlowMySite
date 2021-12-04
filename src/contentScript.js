@@ -19,7 +19,7 @@ console.log(
 );
 */
 
-
+/*
 document.addEventListener('DOMContentLoaded', fireContentLoadedEvent, false);
 
 function fireContentLoadedEvent () {
@@ -31,9 +31,19 @@ function fireContentLoadedEvent () {
   //document.head.appendChild(script);
   head.insertBefore(script, head.firstChild);
 }
+*/
 
+chrome.storage.sync.get (['isactive'], function (obj) {
+  console.log("plugin activity : " + obj);
+});
 
-
+  // Add into the head 
+  var head = document.head;
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = "https://ludovic33fr.github.io/SlowMySite/src/external/fakeParty.js";
+  //document.head.appendChild(script);
+  head.insertBefore(script, head.firstChild);
 
 // Communicate with background file by sending a message
 /*
@@ -51,15 +61,21 @@ chrome.runtime.sendMessage(
 */
 
 // Listen for message
-/*
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  
+  if (request.type === 'ACTIVE') {
+    console.log(`Activation plugin is ${request.payload.isactive}`);
+  }
+  /*
   if (request.type === 'COUNT') {
     console.log(`Current count is ${request.payload.count}`);
   }
+  */
 
   // Send an empty response
   // See https://github.com/mozilla/webextension-polyfill/issues/130#issuecomment-531531890
   sendResponse({});
   return true;
 });
-*/
+
