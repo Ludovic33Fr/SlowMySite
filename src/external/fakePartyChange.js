@@ -14,10 +14,6 @@
     //Number of second to wait
     var desiredLoadFactor = 5;
     
-    var keypad1 = document.createElement("div");
-    keypad1.innerHTML = "...Bad ...";
-    document.body.appendChild(keypad1);
-
     var now = new Date().getTime();
     var result = 0
     console.log("Start the service : " + new Date().toLocaleString('en-US'));
@@ -30,7 +26,7 @@
         
         
             var keypad1 = document.createElement("div");
-            keypad1.innerHTML = "... it is too slow ...";
+            keypad1.innerHTML = "...Bad it is too slow ...";
             document.body.appendChild(keypad1);
 
         }
