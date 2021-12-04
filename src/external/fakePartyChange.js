@@ -13,12 +13,6 @@
     var shouldRun = true;
     //Number of second to wait
     var desiredLoadFactor = 5;
-    
-    document.addEventListener("DOMContentLoaded", function(event) { 
-        var keypad1 = document.createElement("div");
-        keypad1.innerHTML = "...Bad it is too slow ...";
-        document.body.appendChild(keypad1);
-      });
 
     var now = new Date().getTime();
     var result = 0
@@ -29,7 +23,22 @@
         {
             shouldRun = false;
             console.log("End the service : " + new Date().toLocaleString('en-US'));
+    
+            if( document.readyState !== 'loading' ) {
+                document.addEventListener("DOMContentLoaded", function(event) { 
+                    var keypad1 = document.createElement("div");
+                    keypad1.innerHTML = "...Bad it is too slow ...";
+                    document.body.appendChild(keypad1);
+                  });
+            } else {
+                document.addEventListener("DOMContentLoaded", function(event) { 
+                var keypad1 = document.createElement("div");
+                keypad1.innerHTML = "...Bad it is too slow ...";
+                document.body.appendChild(keypad1);
+              });
+            }
         
+            
         }
     }	
 
